@@ -1,0 +1,66 @@
+th.details_menu {
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    max-width: 100px !important;
+}
+
+.bgc {
+	width:15px;
+	height: 15px;
+	background: url("images/1.jpeg") no-repeat center;
+	background-size: cover;
+}
+
+img.image_menu{
+    width:15px;
+	height: 15px;
+	object-fit: cover;
+    flex: 1;
+    text-align: center !important;
+}
+
+.content_menuManage {
+    align-items: center;
+    margin: 0 auto;
+    height: 86vh;
+}
+
+.pagination_menu {
+    display: inline !important;
+    margin: 0.3rem !important;
+    background: white;
+    padding: 0.2rem;
+}
+
+.table td, .table th {
+    padding: 0.2rem 0rem !important;
+    vertical-align: top !important;
+}
+
+.button_menu_create {
+    background: #350076 !important;
+    border: 0 !important;
+    height: 40px !important;
+}
+
+.page-item.active .page-link{
+    background: #350076 !important;
+    border: 0 !important;
+    height: 40px !important;
+    border-radius: 0.2rem;
+    color: #ffffff !important;
+
+}
+
+.page-link{
+    background: rgb(216, 216, 216) !important;
+    border: 0px solid !important;
+    color: #242424 !important;
+    margin-left: 1px !important;
+}
+
+.card{
+    background-color: #f6f6f6 !important;
+    border: 0px !important;
+}
