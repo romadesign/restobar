@@ -79,24 +79,27 @@ function updateCategorie()
 
 
     } ?>
-        <div class="form-content">
-         <h2 class="mt-3">Edit categorie where Id <?php echo $_GET['id']; ?></h2>
-        <form action="categorieManageUpdate.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
-            <div class="row">
+<div class="form-content">
+    <h2 class="mt-3">Edit categorie where Id <?php echo $_GET['id']; ?></h2>
+    <form action="categorieManageUpdate.php?id=<?php echo $_GET['id']; ?>" method="POST" enctype="multipart/form-data">
+        <div class="row">
             <div class="col-md-6">
-                    <div class="mb-3">
-                            <label for="categorieName" class="form-label">Description</label>
-                            <input class="form-control" type="text" name="categorieName" id="categorieName" value="<?php echo $row['categorieName']?>"autofocus>
-                        </div>
-                        <div class="mb-3">
-                            <label for="categorieDesc" class="form-label">Description</label>
-                            <textarea class="form-control" type="text" name="categorieDesc" id="categorieDesc" autofocus><?php echo $row['categorieDesc']?></textarea>
-                        </div>
+                <div class="mb-3">
+                    <label for="categorieName" class="form-label">Description</label>
+                    <input class="form-control" type="text" name="categorieName" id="categorieName"
+                        value="<?php echo $row['categorieName']?>" autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="categorieDesc" class="form-label">Description</label>
+                    <textarea class="form-control" type="text" name="categorieDesc" id="categorieDesc"
+                        autofocus><?php echo $row['categorieDesc']?></textarea>
+                </div>
             </div>
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="image" class="control-label">Remplazar</label>
-                    <input type="file" name="categorieImage" id="categorieImage" accept=".jpg" class="form-control" required style="border:none;">
+                    <input type="file" name="categorieImage" id="categorieImage" accept=".jpg" class="form-control"
+                        required style="border:none;">
                     <small id="Info" class="form-text text-muted mx-3">Please .jpg file upload.</small>
                 </div>
                 <div class="d-flex">
@@ -104,9 +107,9 @@ function updateCategorie()
                     <button type="button" class="btn btn-danger w-100  m-1"><a href="index.php">Cancel</a></button>
                 </div>
             </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 <?php 
 
 } ?>

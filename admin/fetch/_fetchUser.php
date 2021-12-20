@@ -90,41 +90,45 @@ function updateUser()
         $result = mysqli_query($conn, $sql);
         header("Location: ../admin/index.php?page=userManage");
     } ?>
-        <div class="form-content">
-         <h2 class="mt-3">Edit user where Id <?php echo $_GET['id']; ?></h2>
-        <form action="userManageUpdate.php?id=<?php echo $_GET['id']; ?>" method="POST">
-            <div class="row">
+<div class="form-content">
+    <h2 class="mt-3">Edit user where Id <?php echo $_GET['id']; ?></h2>
+    <form action="userManageUpdate.php?id=<?php echo $_GET['id']; ?>" method="POST">
+        <div class="row">
             <div class="col-md-6">
-                        <div class="mb-3">
-                            <label for="firstName" class="form-label">firstName</label>
-                            <input class="form-control" type="text" name="firstName" id="firstName" value="<?php echo $row['firstName']?>"autofocus>
-                        </div>
-                        <div class="mb-3">
-                            <label for="lastName" class="form-label">lastName</label>
-                            <input class="form-control" type="text" name="lastName" id="lastName" value="<?php echo $row['lastName']?>"autofocus>
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">email</label>
-                            <input class="form-control" type="text" name="email" id="email" value="<?php echo $row['email']?>"autofocus>
-                        </div>
-                        <div class="row">
-                        <div class="col-md-6 my-0">
-                                <b><label for="phone">Celular:</label></b>
-                                <div class="input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon">+64</span>
-                                    </div>
-                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="<?php echo $row['phone']?>" required  maxlength="9">
-                                </div>
+                <div class="mb-3">
+                    <label for="firstName" class="form-label">firstName</label>
+                    <input class="form-control" type="text" name="firstName" id="firstName"
+                        value="<?php echo $row['firstName']?>" autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="lastName" class="form-label">lastName</label>
+                    <input class="form-control" type="text" name="lastName" id="lastName"
+                        value="<?php echo $row['lastName']?>" autofocus>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">email</label>
+                    <input class="form-control" type="text" name="email" id="email" value="<?php echo $row['email']?>"
+                        autofocus>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 my-0">
+                        <b><label for="phone">Celular:</label></b>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon">+64</span>
                             </div>
-                            <div class="col-md-6 my-0">
-                                <b><label for="userType">Type:</label></b>
-                                <select name="userType" id="userType" class="custom-select browser-default" required>
-                                <option value="0">User</option>
-                                <option value="1">Admin</option>
-                                </select>
-                            </div>
-                        </div>      
+                            <input type="tel" class="form-control" id="phone" name="phone"
+                                placeholder="<?php echo $row['phone']?>" required maxlength="9">
+                        </div>
+                    </div>
+                    <div class="col-md-6 my-0">
+                        <b><label for="userType">Type:</label></b>
+                        <select name="userType" id="userType" class="custom-select browser-default" required>
+                            <option value="0">User</option>
+                            <option value="1">Admin</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="col-md-6">
                 <!-- <div class="form-group">
@@ -137,9 +141,9 @@ function updateUser()
                     <button type="button" class="btn btn-danger w-100  m-1"><a href="index.php">Cancel</a></button>
                 </div>
             </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
+</div>
 <?php 
 
 } ?>
