@@ -1,33 +1,20 @@
-<?php include_once ('templates/header.php')?>
-<?php include('db/dbconnect.php')?>
-<?php require ('fetch/_nav.php') ?>
+<?php include('fetch/_dbconnect.php');?>
+<?php require('fetch/_nav.php');?>
 
-<div class="container">
+<?php include_once('templates/header.php') ?>
+
+<!-- Category container starts here -->
+<div class="container my-3 mb-5">
+    <div class="col-lg-2 text-center bg-light my-3"
+        style="margin:auto;border-top: 2px groove black;border-bottom: 2px groove black;">
+        <h2 class="text-center">Menu </h2>
+    </div>
     <div class="row">
+        <!-- Fetch all the categories and use a loop to iterate through categories -->
         <?php 
-          $sql = "SELECT * FROM `categories`"; 
-          $result = mysqli_query($conn, $sql);
-          while($row = mysqli_fetch_assoc($result)){ 
-          $id = $row['categorieId'];
-          $categorie = $row['categorieName'];
-          $desc = $row['categorieDesc']?>
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <div class="card">
-                <img class="image_menu"
-                    src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['categorieImage'])) ?>">
-                <div class="card-body">
-                    <h5 class="card-title"><a
-                            href="viewPizzaList.php?catid=<?php echo $id ?>"><?php echo  $categorie  ?></a></h5>
-                    <p class="card-text"><?php echo substr($desc, 0, 30) ?></p>
-                    <a href="viewPizzaList.php?catid=<?php echo $id ?>" class="btn btn-primary">View All</a>
-                </div>
-            </div>
-        </div>
-        <?php }
-            ?>
+        getCategorie()
+      ?>
     </div>
 </div>
-</div>
-</div>
 
-<?php include_once 'templates/footer.php';?>
+<?php include_once('templates/footer.php') ?>

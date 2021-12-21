@@ -1,13 +1,13 @@
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include ('db/dbconnect.php');
+    include '_dbconnect.php';
     $username = $_POST["loginusername"];
     $password = $_POST["loginpassword"]; 
     
-    $sql = "SELECT * FROM users WHERE username = $username"; 
+    $sql = "SELECT * FROM users WHERE username='$username'"; 
     $result = mysqli_query($conn, $sql);
     $num = mysqli_num_rows($result);
-    if ($num === 1){
+    if ($num == 1){
         $row=mysqli_fetch_assoc($result);
         $userId = $row['id'];
         if (password_verify($password, $row['password'])){ 
