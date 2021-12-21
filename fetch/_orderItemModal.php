@@ -3,7 +3,6 @@
     $itemModalResult = mysqli_query($conn, $itemModalSql);
     while($itemModalRow = mysqli_fetch_assoc($itemModalResult)){
         $orderid = $itemModalRow['orderId'];
-    
 ?>
 
 <!-- Modal -->
@@ -38,27 +37,27 @@
                                     $mysql = "SELECT * FROM `orderitems` WHERE orderId = $orderid";
                                     $myresult = mysqli_query($conn, $mysql);
                                     while($myrow = mysqli_fetch_assoc($myresult)){
-                                        $pizzaId = $myrow['pizzaId'];
+                                        $menuId = $myrow['menuId'];
                                         $itemQuantity = $myrow['itemQuantity'];
                                         
-                                        $itemsql = "SELECT * FROM `pizza` WHERE pizzaId = $pizzaId";
+                                        $itemsql = "SELECT * FROM `menu` WHERE menuId = $menuId";
                                         $itemresult = mysqli_query($conn, $itemsql);
                                         $itemrow = mysqli_fetch_assoc($itemresult);
-                                        $pizzaName = $itemrow['pizzaName'];
-                                        $pizzaPrice = $itemrow['pizzaPrice'];
-                                        $pizzaDesc = $itemrow['pizzaDesc'];
-                                        $pizzaCategorieId = $itemrow['pizzaCategorieId'];
+                                        $menuName = $itemrow['menuName'];
+                                        $menuPrice = $itemrow['menuPrice'];
+                                        $menuDesc = $itemrow['menuDesc'];
+                                        $menuCategorieId = $itemrow['menuCategorieId'];
 
                                         echo '<tr>
                                                 <th scope="row">
                                                     <div class="p-2">
-                                                    <img src="img/pizza-'.$pizzaId. '.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
+                                                    <img src="img/menu-'.$menuId.'.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
                                                     <div class="ml-3 d-inline-block align-middle">
-                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">'.$pizzaName. '</a></h5><span class="text-muted font-weight-normal font-italic d-block">Rs. ' .$pizzaPrice. '/-</span>
+                                                        <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block align-middle">'.$menuName.'</a></h5><span class="text-muted font-weight-normal font-italic d-block">Rs. ' .$menuPrice. '/-</span>
                                                     </div>
                                                     </div>
                                                 </th>
-                                                <td class="align-middle text-center"><strong>' .$itemQuantity. '</strong></td>
+                                                <td class="align-middle text-center"><strong>'.$itemQuantity.'</strong></td>
                                             </tr>';
                                     }
                                 ?>

@@ -5,7 +5,7 @@ function getCategorieNav(){
   $result = mysqli_query($conn, $sql);
   while($row = mysqli_fetch_assoc($result)){?>
 <a class="dropdown-item"
-    href="viewPizzaList.php?catid=<?php echo $row['categorieId'] ?>"><?php echo $row['categorieName'] ?> </a>
+    href="viewMenuList.php?catid=<?php echo $row['categorieId'] ?>"><?php echo $row['categorieName'] ?> </a>
 <?php }
 }
 
@@ -50,9 +50,9 @@ function getCategorie(){
               <img class="image_menu"
                   src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['categorieImage'])) ?>">
               <div class="card-body menu_detail">
-                  <h5 class="card-title badge  text-wrap"><a href="viewPizzaList.php?catid= <?php echo $id ?>"><?php echo $cat ?></a></h5>
+                  <h5 class="card-title badge  text-wrap"><a href="viewMenuList.php?catid= <?php echo $id ?>"><?php echo $cat ?></a></h5>
                   <p class="card-text fst-italic "><?php echo substr($desc, 0, 25)?>.. </p>
-                  <!-- <a href="viewPizzaList.php?catid=<?php echo $id ?>" class="btn btn-primary">Mirar platos</a> -->
+                  <!-- <a href="viewMenuList.php?catid=<?php echo $id ?>" class="btn btn-primary">Mirar platos</a> -->
               </div>
       </div>
 </div>

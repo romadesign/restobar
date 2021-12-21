@@ -60,9 +60,9 @@
 
 					$sql = "SELECT * FROM categories where categorieId > $start_limit LIMIT  $no_of_products_per_page";
 
-					// SELECT * FROM `pizza` WHERE (
-					// 		pizzaName LIKE '%queso%' OR
-					// 		pizzaDesc LIKE '%queso%') ORDER BY 1 LIMIT  5
+					// SELECT * FROM `menu` WHERE (
+					// 		menuName LIKE '%queso%' OR
+					// 		menuDesc LIKE '%queso%') ORDER BY 1 LIMIT  5
 
 					$sel_query = mysqli_query($conn, $sql)  or die(mysqli_error($conn));
 

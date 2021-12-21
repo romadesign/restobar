@@ -40,26 +40,26 @@ if($loggedin){
                                 $counter = 0;
                                 $totalPrice = 0;
                                 while($row = mysqli_fetch_assoc($result)){
-                                    $pizzaId = $row['pizzaId'];
+                                    $menuId = $row['menuId'];
                                     $Quantity = $row['itemQuantity'];
-                                    $mysql = "SELECT * FROM pizza WHERE pizzaId = $pizzaId";
+                                    $mysql = "SELECT * FROM menu WHERE menuId = $menuId";
                                     $myresult = mysqli_query($conn, $mysql);
                                     $myrow = mysqli_fetch_assoc($myresult);
-                                    $pizzaName = $myrow['pizzaName'];
-                                    $pizzaPrice = $myrow['pizzaPrice'];
-                                    $total = $pizzaPrice * $Quantity;
+                                    $menuName = $myrow['menuName'];
+                                    $menuPrice = $myrow['menuPrice'];
+                                    $total = $menuPrice * $Quantity;
                                     $counter++;
                                     $totalPrice = $totalPrice + $total; ?>
 
                         <tr>
                             <td><?php echo $counter  ?></td>
-                            <td><?php echo $pizzaName ?></td>
-                            <td><?php echo $pizzaPrice ?></td>
+                            <td><?php echo $menuName ?></td>
+                            <td><?php echo $menuPrice ?></td>
                             <td>
-                                <form id="frm<?php echo $pizzaId ?>">
-                                    <input type="hidden" name="pizzaId" value="<?php echo $pizzaId  ?>">
+                                <form id="frm<?php echo $menuId ?>">
+                                    <input type="hidden" name="menuId" value="<?php echo $menuId  ?>">
                                     <input type="number" name="quantity" value="<?php echo $Quantity ?>"
-                                        class="text-center" onchange="updateCart(<?php echo $pizzaId ?>)"
+                                        class="text-center" onchange="updateCart(<?php echo $menuId ?>)"
                                         onkeyup="return false" style="width:60px" min=1 oninput="check(this)"
                                         onClick="this.select();">
                                 </form>
@@ -68,7 +68,7 @@ if($loggedin){
                             <td>
                                 <form action="fetch/_manageCart.php" method="POST">
                                     <button name="removeItem" class="btn btn-sm btn-outline-danger">Retirar</button>
-                                    <input type="hidden" name="itemId" value="<?php echo $pizzaId ?>">
+                                    <input type="hidden" name="itemId" value="<?php echo $menuId ?>">
                                 </form>
                             </td>
                         </tr>

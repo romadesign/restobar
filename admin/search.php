@@ -18,17 +18,17 @@
 					</div>
 					<div class="card-body">
 						<div class="form-group">
-							<input type="text" class="form-control" name="pizzaName" placeholder="Name:" required>
+							<input type="text" class="form-control" name="menuName" placeholder="Name:" required>
 						</div>
 						<div class="form-group">
-							<textarea cols="30" rows="3" class="form-control" name="pizzaDesc" placeholder="Description:" required></textarea>
+							<textarea cols="30" rows="3" class="form-control" name="menuDesc" placeholder="Description:" required></textarea>
 						</div>
 						<div class="form-group">
-							<input type="number" class="form-control" name="pizzaPrice" Placeholder="Price:" required min="1">
+							<input type="number" class="form-control" name="menuPrice" Placeholder="Price:" required min="1">
 						</div>
 						<div class="form-group">
 							<label class="control-label">Category: </label>
-							<select name="pizzaCategorieId" id="pizzaCategorieId" class="custom-select browser-default" required>
+							<select name="menuCategorieId" id="menuCategorieId" class="custom-select browser-default" required>
 								<option hidden disabled selected value>Select category</option>
 								<?php
 								$catsql = "SELECT * FROM `categories`";
@@ -43,7 +43,7 @@
 						</div>
 						<div class="form-group">
 							<label for="image" class="control-label">Image</label>
-							<input type="file" name="pizzaImage" id="pizzaImage" accept=".jpg" class="form-control" required style="border:none;">
+							<input type="file" name="menuImage" id="menuImage" accept=".jpg" class="form-control" required style="border:none;">
 							<small id="Info" class="form-text text-muted mx-3">Please .jpg file upload.</small>
 						</div>
 					</div>
@@ -66,30 +66,30 @@
 				<tbody>
 					<?php
 					include('./db/dbconnect.php');
-					// $sql = "SELECT * FROM `pizza`";
-					$sql = "SELECT * FROM `pizza`   
+					// $sql = "SELECT * FROM `menu`";
+					$sql = "SELECT * FROM `menu`   
 							WHERE (
-								pizzaName LIKE '%$busqueda%' OR
-								pizzaDesc LIKE '%$busqueda%'
+								menuName LIKE '%$busqueda%' OR
+								menuDesc LIKE '%$busqueda%'
 							)";
                     $result = $conn->query($sql);
 					while($row=$result->fetch_assoc()){ ?>
 						<tr>
-							<th scope="row" class="details_menu"><?php echo $row['pizzaName'] ?></th>
-							<th scope="row" class="details_menu"><?php echo $row['pizzaDesc'] ?></th>
-							<th scope="row" class="text-center"><?php echo $row['pizzaPrice'] ?></th>
-							<th scope="row" class="text-center"><?php echo $row['pizzaCategorieId'] ?></th>
+							<th scope="row" class="details_menu"><?php echo $row['menuName'] ?></th>
+							<th scope="row" class="details_menu"><?php echo $row['menuDesc'] ?></th>
+							<th scope="row" class="text-center"><?php echo $row['menuPrice'] ?></th>
+							<th scope="row" class="text-center"><?php echo $row['menuCategorieId'] ?></th>
 							<th scope="row" class="bgc">
-								<img class="image_menu" src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['pizzaImage'])) ?>">
+								<img class="image_menu" src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['menuImage'])) ?>">
 							</th>
 							<th scope="row" class="text-center">
 								<div class="row text-rigth ml-3">
 									<div class="ml-3">
-											<a href="menuManageUpdate.php?id=<?php echo $row['pizzaId'] ?>"><i class="fas fa-edit"></i></a>
+											<a href="menuManageUpdate.php?id=<?php echo $row['menuId'] ?>"><i class="fas fa-edit"></i></a>
 									</div>
 									<form action="fetch/fetch.php" method="POST" class="ml-3">
 										<button name="removeItem" class="btn btn-sm btn-danger"><i class="fas fa-trash-alt"></i></button>
-										<input type="hidden" name="pizzaId" value="<?php echo $row['pizzaId'] ?>">
+										<input type="hidden" name="menuId" value="<?php echo $row['menuId'] ?>">
 									</form>
 								</div>
 							</th>

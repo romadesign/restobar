@@ -5,8 +5,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['removeItem'])) {
         include_once('../db/dbconnect.php');
 
-        $pizzaId = $_POST["pizzaId"];
-        $sql = "DELETE FROM `pizza` WHERE `pizzaId`='$pizzaId'";
+        $menuId = $_POST["menuId"];
+        $sql = "DELETE FROM `menu` WHERE `menuId`='$menuId'";
         $result = mysqli_query($conn, $sql);
 
         if ($result) {
@@ -26,19 +26,18 @@ function createPizza()
 {
     include('db/dbconnect.php');
     if (isset($_POST['createItem'])) {
-        $pizzaName = $_POST["pizzaName"];
-        $pizzaDesc = $_POST["pizzaDesc"];
-        $pizzaCategorieId = $_POST["pizzaCategorieId"];
-        $pizzaPrice = $_POST["pizzaPrice"];
-        $pizzaDesc = $_POST["pizzaDesc"];
-        $pizzaImage = $_FILES['pizzaImage']['tmp_name'];
-        $pizzaImageType = pathinfo($pizzaImage, PATHINFO_EXTENSION);    
+        $menuName = $_POST["menuName"];
+        $menuCategorieId = $_POST["menuCategorieId"];
+        $menuPrice = $_POST["menuPrice"];
+        $menuDesc = $_POST["menuDesc"];
+        $menuImage = $_FILES['menuImage']['tmp_name'];
+        $menuImageType = pathinfo($menuImage, PATHINFO_EXTENSION);    
 
-        $datainage = file_get_contents($pizzaImage);
+        $datainage = file_get_contents($menuImage);
         $img_base64 = base64_encode($datainage);
-        $img = 'data:image/' . $pizzaImageType . ';base64,' . $img_base64;
+        $img = 'data:image/' . $menuImageType . ';base64,' . $img_base64;
 
-        $query = "INSERT INTO pizza (pizzaName, pizzaPrice, pizzaDesc, pizzaCategorieId, pizzaImage) VALUES ('$pizzaName', '$pizzaPrice','$pizzaDesc', '$pizzaCategorieId', '$img')";
+        $query = "INSERT INTO menu (menuName, menuPrice, menuDesc, menuCategorieId, menuImage) VALUES ('$menuName', '$menuPrice','$menuDesc', '$menuCategorieId', '$img')";
         $resultado = mysqli_query($conn, $query);
 
         header("Location: ../admin/index.php");
@@ -50,8 +49,8 @@ function updatePizza()
 {
     include('db/dbconnect.php');
     if(isset($_GET['id'])){
-        $pizzaId = $_GET["id"];
-        $sql = "SELECT * FROM pizza WHERE pizzaId = $pizzaId";
+        $menuId = $_GET["id"];
+        $sql = "SELECT * FROM menu WHERE menuId = $menuId";
         $result = $conn->query($sql);
         $row = $result->fetch_assoc();
     
@@ -61,18 +60,18 @@ function updatePizza()
     }
 
     if(isset($_POST['update'])){
-        $pizzaId = $_GET["id"];
-        $pizzaName = $_POST["pizzaName"];
-        $pizzaPrice = $_POST["pizzaPrice"];
-        $pizzaCategorieId = $_POST["pizzaCategorieId"];
-        $pizzaDesc = $_POST["pizzaDesc"];
-        $pizzaImage = $_FILES['pizzaImage']['tmp_name'];
-        $pizzaImageType = pathinfo($pizzaImage, PATHINFO_EXTENSION);    
+        $menuId = $_GET["id"];
+        $menuName = $_POST["menuName"];
+        $menuPrice = $_POST["menuPrice"];
+        $menuCategorieId = $_POST["menuCategorieId"];
+        $menuDesc = $_POST["menuDesc"];
+        $menuImage = $_FILES['menuImage']['tmp_name'];
+        $menuImageType = pathinfo($menuImage, PATHINFO_EXTENSION);    
 
-        $datainage = file_get_contents($pizzaImage);
+        $datainage = file_get_contents($menuImage);
         $img_base64 = base64_encode($datainage);
-        $img = 'data:image/' . $pizzaImageType . ';base64,' . $img_base64;
-        $sql = "UPDATE pizza set pizzaName = '$pizzaName', pizzaDesc = '$pizzaDesc',pizzaCategorieId = '$pizzaCategorieId', pizzaPrice = '$pizzaPrice', pizzaImage = '$img' WHERE pizzaId = $pizzaId";
+        $img = 'data:image/' . $menuImageType . ';base64,' . $img_base64;
+        $sql = "UPDATE menu set menuName = '$menuName', menuDesc = '$menuDesc',menuCategorieId = '$menuCategorieId', menuPrice = '$menuPrice', menuImage = '$img' WHERE menuId =' $menuId'";
         $result = $conn->query($sql);
         header("Location: ../admin/index.php?page=menuManage");
 
@@ -84,23 +83,23 @@ function updatePizza()
             <div class="row">
             <div class="col-md-6">
                     <div class="mb-3">
-                            <label for="pizzaName" class="form-label">Description</label>
-                            <input class="form-control" type="text" name="pizzaName" id="pizzaName" value="<?php echo $row['pizzaName']?>"autofocus>
+                            <label for="menuName" class="form-label">Description</label>
+                            <input class="form-control" type="text" name="menuName" id="menuName" value="<?php echo $row['menuName']?>"autofocus>
                         </div>
                         <div class="mb-3">
-                            <label for="pizzaDesc" class="form-label">Description</label>
-                            <textarea class="form-control" type="text" name="pizzaDesc" id="pizzaDesc" autofocus><?php echo $row['pizzaDesc']?></textarea>
+                            <label for="menuDesc" class="form-label">Description</label>
+                            <textarea class="form-control" type="text" name="menuDesc" id="menuDesc" autofocus><?php echo $row['menuDesc']?></textarea>
                         </div>
                         <div class="mb-3">
-                            <label for="pizzaPrice" class="form-label">Price</label> 
+                            <label for="menuPrice" class="form-label">Price</label> 
                             <div class="input-group">
-                                <input type="text" name="pizzaPrice" id="pizzaPrice" value="<?php echo $row['pizzaPrice'] ?>" autofocus class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
+                                <input type="text" name="menuPrice" id="menuPrice" value="<?php echo $row['menuPrice'] ?>" autofocus class="form-control" aria-label="Dollar amount (with dot and two decimal places)">
                                 <span class="input-group-text">$</span>
                                 <span class="input-group-text">0.00</span>
                             </div>
                         </div>
                         <div class="input-group mb-3">
-                                    <select name="pizzaCategorieId" id="pizzaCategorieId" class="form-select"  required>
+                                    <select name="menuCategorieId" id="menuCategorieId" class="form-select"  required>
                                         <option hidden disabled selected value>Select category</option>
                                         <?php
                                         $catsql = "SELECT * FROM `categories`";
@@ -117,7 +116,7 @@ function updatePizza()
             <div class="col-md-6">
                 <div class="form-group">
                     <label for="image" class="control-label">Remplazar</label>
-                    <input type="file" name="pizzaImage" id="pizzaImage" accept=".jpg" class="form-control" required style="border:none;">
+                    <input type="file" name="menuImage" id="menuImage" accept=".jpg" class="form-control" required style="border:none;">
                     <small id="Info" class="form-text text-muted mx-3">Please .jpg file upload.</small>
                 </div>
                 <div class="d-flex">

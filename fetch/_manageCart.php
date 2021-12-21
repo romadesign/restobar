@@ -7,7 +7,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     if(isset($_POST['addToCart'])) {
         $itemId = $_POST["itemId"];
         // Check whether this item exists
-        $existSql = "SELECT * FROM `viewcart` WHERE pizzaId = '$itemId' AND `userId`='$userId'";
+        $existSql = "SELECT * FROM viewcart WHERE menuId='$itemId' AND userId='$userId'";
         $result = mysqli_query($conn, $existSql);
         $numExistRows = mysqli_num_rows($result);
         if($numExistRows > 0){
@@ -16,7 +16,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
                     </script>";
         }
         else{
-            $sql = "INSERT INTO `viewcart` (`pizzaId`, `itemQuantity`, `userId`, `addedDate`) VALUES ('$itemId', '1', '$userId', current_timestamp())";   
+            $sql = "INSERT INTO viewcart (menuId, itemQuantity, userId, addedDate) VALUES ('$itemId', '1', '$userId', current_timestamp())";   
             $result = mysqli_query($conn, $sql);
             if ($result){
                 echo "<script>
@@ -27,14 +27,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(isset($_POST['removeItem'])) {
         $itemId = $_POST["itemId"];
-        $sql = "DELETE FROM `viewcart` WHERE `pizzaId`='$itemId' AND `userId`='$userId'";   
+        $sql = "DELETE FROM viewcart WHERE menuId='$itemId' AND userId='$userId'";   
         $result = mysqli_query($conn, $sql);
         echo "<script>alert('Removed');
                 window.history.back(1);
             </script>";
     }
     if(isset($_POST['removeAllItem'])) {
-        $sql = "DELETE FROM `viewcart` WHERE `userId`='$userId'";   
+        $sql = "DELETE FROM viewcart WHERE userId='$userId'";   
         $result = mysqli_query($conn, $sql);
         echo "<script>alert('Removed All');
                 window.history.back(1);
@@ -54,19 +54,19 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
         $passRow=mysqli_fetch_assoc($passResult);
         $userName = $passRow['username'];
         if (password_verify($password, $passRow['password'])){ 
-            $sql = "INSERT INTO `orders` (`userId`, `address`, `zipCode`, `phoneNo`, `amount`, `paymentMode`, `orderStatus`, `orderDate`) VALUES ('$userId', '$address', '$zipcode', '$phone', '$amount', '0', '0', current_timestamp())";
+            $sql = "INSERT INTO orders (userId, address, zipCode, phoneNo, amount, paymentMode, orderStatus, orderDate) VALUES ('$userId', '$address', '$zipcode', '$phone', '$amount', '0', '0', current_timestamp())";
             $result = mysqli_query($conn, $sql);
             $orderId = $conn->insert_id;
             if ($result){
-                $addSql = "SELECT * FROM `viewcart` WHERE userId='$userId'"; 
+                $addSql = "SELECT * FROM viewcart WHERE userId='$userId'"; 
                 $addResult = mysqli_query($conn, $addSql);
                 while($addrow = mysqli_fetch_assoc($addResult)){
-                    $pizzaId = $addrow['pizzaId'];
+                    $menuId = $addrow['menuId'];
                     $itemQuantity = $addrow['itemQuantity'];
-                    $itemSql = "INSERT INTO `orderitems` (`orderId`, `pizzaId`, `itemQuantity`) VALUES ('$orderId', '$pizzaId', '$itemQuantity')";
+                    $itemSql = "INSERT INTO orderitems (orderId, menuId, itemQuantity) VALUES ('$orderId', '$menuId', '$itemQuantity')";
                     $itemResult = mysqli_query($conn, $itemSql);
                 }
-                $deletesql = "DELETE FROM `viewcart` WHERE `userId`='$userId'";   
+                $deletesql = "DELETE FROM viewcart WHERE userId='$userId'";   
                 $deleteresult = mysqli_query($conn, $deletesql);
                 echo '<script>alert("Thanks for ordering with us. Your order id is ' .$orderId. '.");
                     window.location.href="index.php";  
@@ -83,9 +83,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest')
     {
-        $pizzaId = $_POST['pizzaId'];
+        $menuId = $_POST['menuId'];
         $qty = $_POST['quantity'];
-        $updatesql = "UPDATE `viewcart` SET `itemQuantity`='$qty' WHERE `pizzaId`='$pizzaId' AND `userId`='$userId'";
+        $updatesql = "UPDATE viewcart SET itemQuantity='$qty' WHERE menuId='$menuId' AND userId='$userId'";
         $updateresult = mysqli_query($conn, $updatesql);
     }
     
