@@ -4,5 +4,41 @@
 }
 
 body{
-    background-color: red;
+    background-color: #f8f9fa !important;
+}
+
+/* Card Styles menu */
+.card{
+    border: 0 !important;
+}
+.card-body h5 a {
+    font-size: 0.9rem !important;
+    color: rgb(48, 48, 48) !important;
+}
+.card-body p {
+    font-size: 0.9rem !important;
+}
+.menu_content{
+    
+}
+.menu_detail{
+    
+}
+
+/* Modal */
+.modal-dialog {
+    height: 100vh !important;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+.modal-header{
+    border-bottom: 0 !important;
+}
+
+/* Navbar  */
+
+.dropdown-menu{
+    margin-left: -3rem !important;
+    text-align: center !important;
 }

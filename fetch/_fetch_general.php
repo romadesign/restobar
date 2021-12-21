@@ -45,16 +45,16 @@ function getCategorie(){
       $id = $row['categorieId'];
       $cat = $row['categorieName'];
       $desc = $row['categorieDesc']; ?>
-<div class="col-xs-2 col-sm-4 col-md-4">
-    <div class="card menu_content" style="width:100%;">
-        <img class="image_menu"
-            src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['categorieImage'])) ?>">
-        <div class="card-body">
-            <h5 class="card-title badge  text-wrap"><a href="viewPizzaList.php?catid= <?php echo $id ?>"><?php echo $cat ?></a></h5>
-            <p class="card-text fst-italic "><?php echo substr($desc, 0, 30)?> </p>
-            <a href="viewPizzaList.php?catid=<?php echo $id ?>" class="btn btn-primary">Mirar platos</a>
-        </div>
-    </div>
+      <div class="col-sm-4 col-md-3 mb-3">
+          <div class="card menu_content" style="width:100%;">
+              <img class="image_menu"
+                  src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['categorieImage'])) ?>">
+              <div class="card-body menu_detail">
+                  <h5 class="card-title badge  text-wrap"><a href="viewPizzaList.php?catid= <?php echo $id ?>"><?php echo $cat ?></a></h5>
+                  <p class="card-text fst-italic "><?php echo substr($desc, 0, 25)?>.. </p>
+                  <!-- <a href="viewPizzaList.php?catid=<?php echo $id ?>" class="btn btn-primary">Mirar platos</a> -->
+              </div>
+      </div>
 </div>
 <?php }
    }

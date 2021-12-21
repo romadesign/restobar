@@ -3,7 +3,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Iniciar Sessión</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -16,12 +16,10 @@
                   <b><label for="password">Password</label></b>
                   <input class="form-control" id="loginpassword" name="loginpassword" placeholder="Enter Your Password" type="password" required data-toggle="password">
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
+              <button type="submit" class="btn btn-success">Ingresar</button>
             </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+            <p class="mb-0 mt-1">¿No tienes una cuenta? <a href="#"  type="button" data-bs-toggle="modal" data-bs-target="#signupModal">Regístrate ahora</a>.</p>
+
       </div>
     </div>
   </div>

@@ -51,8 +51,9 @@ include 'fetch/_fetch_general.php';
                 <button class="btn btn-outline-success" type="submit">Buscar</button>
             </form>
             <?php
-              echo viewcart();
-              if($loggedin){ ?>
+                echo viewcart();
+
+              if($loggedin){?>
                 <div class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false"><?php echo $username ?></a>
