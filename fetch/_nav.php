@@ -40,7 +40,7 @@ include 'fetch/_fetch_general.php';
             </ul>
         </div>
         <div class="content_left">
-        <?php
+            <?php
                 $countsql = "SELECT SUM(`itemQuantity`) FROM `viewcart` WHERE `userId`=$userId"; 
                 $countresult = mysqli_query($conn, $countsql);
                 $countrow = mysqli_fetch_assoc($countresult);      
@@ -48,31 +48,35 @@ include 'fetch/_fetch_general.php';
                 if(!$count) {
                 $count = 0; 
                 } ?>
-                <a href="viewCart.php">
-                    <button type="button" class="btn btn-ligth mx-2" title="Mí pedido">
-                        <i class="fas fa-shopping-cart"></i>
-                        <i class="bi bi-cart"><?php echo $count  ?></i>
-                    </button>
-                </a>
-                <?php 
-                 
+            <a href="viewCart.php">
+                <button type="button" class="btn btn-ligth mx-2" title="Mí pedido">
+                    <i class="fas fa-shopping-cart"></i>
+                    <i class="bi bi-cart"><?php echo $count  ?></i>
+                </button>
+            </a>
+            <?php 
               if($loggedin){?>
             <div class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
                     aria-expanded="false"><?php echo $username ?></a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item ml-3" href="fetch/_logout.php"><i class="fas fa-power-off"></i>&nbsp; Salír</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="viewOrder.php"><i class="fas fa-tasks"></i>&nbsp; Pedidos</a>
+                    </li>
+                    <li>
+                    <a class="dropdown-item ml-3" href="fetch/_logout.php"><i class="fas fa-power-off"></i>&nbsp;
+                        Salír</a>
+                    </li>
                 </ul>
             </div>
             <?php }else { ?>
             <button type="button" class="btn ml-3" data-bs-toggle="modal" data-bs-target="#loginModal"> Login</button>
             <div class="register">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                data-bs-target="#signupModal">Registrar</button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#signupModal">Registrar</button>
             </div>
             <?php }
               ?>
         </div>
     </div>
 </nav>
-

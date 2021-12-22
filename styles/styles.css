@@ -23,6 +23,7 @@ body{
 }
 
 
+
 /* Modal */
 .modal-dialog {
     height: 100vh !important;
@@ -62,6 +63,12 @@ i.bi.bi-cart {
     font-size: 0.8rem;
     margin-left: -7px;
 }
+.navbar {
+    position: fixed !important;
+    z-index: 1;
+    top: 0;
+    width: 100%;
+}
 
 @media only screen and (max-width: 520px) {
   .register button {
@@ -87,3 +94,8 @@ i.bi.bi-cart {
         padding: .5rem 0.0rem !important;
     }
   }
+
+  /* Contact */
+  .content_contact {
+    background: rebeccapurple !important;
+}

@@ -12,9 +12,10 @@
 ?>
 <!-- Pizza container starts here -->
 <div class="container my-3" id="cont">
+<br><br>
     <div class="col-lg-4 text-center bg-light my-3"
         style="margin:auto;border-top: 2px groove black;border-bottom: 2px groove black;">
-        <h2 class="text-center"><span id="catTitle">Items</span></h2>
+        <h2 class="text-center"><span id="catTitle"><?php echo $catname ?></span></h2>
     </div>
     <div class="row">
         <?php

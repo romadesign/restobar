@@ -5,6 +5,7 @@
 
 <!-- Category container starts here -->
 <div class="container my-3 mb-5">
+    <br><br><br>
     <div class="col-lg-2 text-center bg-lightmy-3"
         style="margin:auto;border-top: 2px groove black;border-bottom: 2px groove black;">
         <h2 class="text-center">Menú</h2>
