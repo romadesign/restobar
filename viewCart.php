@@ -18,11 +18,11 @@ if($loggedin){
                 <table class="table text-center">
                     <thead class="thead-light">
                         <tr>
-                            <th scope="col">No.</th>
-                            <th scope="col">Item Name</th>
-                            <th scope="col">Item Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Total Price</th>
+                            <th class="viewCartNro" scope="col">No.</th>
+                            <th scope="col">Plato</th>
+                            <th scope="col">Price Und</th>
+                            <th scope="col">Cant.</th>
+                            <th scope="col">Price Total</th>
                             <th scope="col">
                                 <form action="fetch/_manageCart.php" method="POST">
                                     <button name="removeAllItem" class="btn btn-sm btn-outline-danger">Eliminar
@@ -52,7 +52,7 @@ if($loggedin){
                                     $totalPrice = $totalPrice + $total; ?>
 
                         <tr>
-                            <td><?php echo $counter  ?></td>
+                            <td class="viewCartNro"><?php echo $counter  ?></td>
                             <td><?php echo $menuName ?></td>
                             <td><?php echo $menuPrice ?></td>
                             <td>
@@ -102,9 +102,9 @@ if($loggedin){
                     <ul class="list-group list-group-flush">
                         <li
                             class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0 bg-light">
-                            Precio total<span>€ <?php echo $totalPrice ?></span></li>
+                            Precio total<span><?php echo $totalPrice ?> €</span></li>
                         <li class="list-group-item d-flex justify-content-between align-items-center px-0 bg-light">
-                            Transporte<span>€ 0</span></li>
+                            Transporte<span>0 €</span></li>
                         <li
                             class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3 bg-light">
                             <div>
@@ -113,7 +113,7 @@ if($loggedin){
                                     <p class="mb-0">(incluidos impuestos y cargos)</p>
                                 </strong>
                             </div>
-                            <span><strong>€ <?php echo $totalPrice ?></strong></span>
+                            <span><strong><?php echo $totalPrice ?> €</strong></span>
                         </li>
                     </ul>
                     <div class="form-check">
@@ -162,7 +162,7 @@ if($loggedin){
     else {
         echo '<div class="container" style="min-height : 610px;">
         <div class="alert alert-info my-3">
-            <font style="font-size:22px"><center>Before checkout you need to <strong><a class="alert-link" data-toggle="modal" data-target="#loginModal">Login</a></strong></center></font>
+            <font style="font-size:22px"><center>Necesitas iniciar sessión para ingresar a tu carrito de compra <strong><a type="button" class="" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></strong></center></font>
         </div></div>';
     }
     ?>

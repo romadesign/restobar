@@ -30,15 +30,14 @@
                 $menuDesc = $row['menuDesc'];
                 $menuImage = $row['menuImage']; ?>
 
-        <div class="col-xs-3 col-sm-3 col-md-3">
-            <div class="card" style="width: 18rem;">
-                <img class="image_menu"
-                    src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['menuImage'])) ?>">
+        <div class="col-md-4 p-2">
+            <div class="card" style="width: 100%;">
+                <img class="image_menu" src="data:image/png;base64,<?php echo base64_encode(file_get_contents($row['menuImage'])) ?>">
                 <div class="card-body">
-                    <h5 class="card-title"><?php echo substr($menuName, 0, 20) ?></h5>
-                    <h6 style="color: #ff0000">€ <?php echo $menuPrice ?></h6>
-                    <p class="card-text"><?php echo substr($menuDesc, 0, 29) ?></p>
-                    <div class="row justify-content-center">
+                    <h5 class="card-title text-wrap"><a href="viewMenu.php?menuid=<?php echo $menuId ?>"><?php echo substr($menuName, 0, 20) ?></a></h5>
+                    <h6 style="color: #ff0000"><?php echo $menuPrice ?> €</h6>
+                    <p class="card-text fst-italic"><?php echo substr($menuDesc, 0, 29) ?></p>
+                    <div class="d-flex justify-content-center">
                         <?php 
                             if($loggedin){
                                 $quaSql = "SELECT itemQuantity FROM viewcart WHERE menuId='$menuId' AND userId='$userId'";
@@ -47,9 +46,11 @@
                                 if($quaExistRows == 0) { ?>
                         <form action="fetch/_manageCart.php" method="POST">
                             <input type="hidden" name="itemId" value="<?php echo $menuId ?>">
-                            <button type="submit" name="addToCart" class="btn btn-primary mx-2">Añadir</button>
+                            <button type="submit" name="addToCart" class="btn mx-2 bg-warning text-dark">
+                            <i class="fas fa-shopping-cart"></i>    
+                            Añadir a la cesta</button>
                             <?php }else { ?>
-                            <a href="viewCart.php"><button class="btn btn-primary mx-2">Ir al carrito</button></a>
+                            <a href="viewCart.php"><button class="btn bg-success text-white mx-2">Ir al carrito</button></a>
                             <?php }
                                       }
                                       else{ ?>
@@ -60,7 +61,7 @@
                             <?php }  ?>
                         </form>
                         <a href="viewMenu.php?menuid=<?php echo $menuId ?>" class="mx-2">
-                            <button class="btn btn-primary">Mirar producto</button>
+                            <button class="btn bg-primary text-white"> <i class="far fa-eye"></i> Mirar plato</button>
                         </a>
                     </div>
                 </div>
@@ -69,6 +70,7 @@
         <?php }
         if($noResult) { ?>
         <div class="jumbotron jumbotron-fluid">
+            <a href="index.php"><< Regresar al inicio</a>
             <div class="container">
                 <p class="display-4">Lo sentimos En esta categoría No hay artículos disponibles.</p>
                 <p class="lead"> Lo actualizaremos pronto.</p>

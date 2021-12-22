@@ -18,12 +18,10 @@ body{
 .card-body p {
     font-size: 0.9rem !important;
 }
-.menu_content{
-    
-}
 .menu_detail{
     
 }
+
 
 /* Modal */
 .modal-dialog {
@@ -37,8 +35,55 @@ body{
 }
 
 /* Navbar  */
-
-.dropdown-menu{
-    margin-left: -3rem !important;
-    text-align: center !important;
+.content_left {
+    position: fixed;
+    right: 9px;
+    top: 9px;
+    display: flex;
+    background: #f8f9fa;
+    z-index: 1;
 }
+.nav-link {
+    padding: 0.5rem 0rem 0.5rem 0rem !important;
+}
+.dropdown-menu{
+    margin-right: -1rem;
+}
+ul.dropdown-menu.show {
+    text-align: center;
+    margin-left: -4.5rem;
+}
+i.bi.bi-cart {
+    background: red;
+    border-radius: 3rem;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-left: -7px;
+}
+
+@media only screen and (max-width: 520px) {
+  .register button {
+      display: none;
+  }
+}
+@media only screen and (max-width: 420px) {
+    ul.navbar-nav.me-auto.mb-2.mb-lg-0 {
+        display: none;
+    }
+  }
+
+
+/* ViewCart */
+@media only screen and (max-width: 433px) {
+    td.viewCartNro {
+        display: none ;
+    }
+    th.viewCartNro {
+        display: none;
+    }
+    .table>:not(caption)>*>*{
+        padding: .5rem 0.0rem !important;
+    }
+  }
