@@ -106,8 +106,9 @@ if($loggedin)
 else { ?>
 <div class="container" style="min-height : 610px;">
     <div class="alert alert-info my-3">
+        <br><br><br>
         <font style="font-size:22px">
-            <center>Verifique su pedido. Necesitas <strong>
+            <center>Para ingresar a mirar sus pedidos necesita iniciar session<strong>
                     <a class="alert-link" type="button" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a>
                 </strong></center>
         </font>

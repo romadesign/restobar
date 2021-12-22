@@ -69,6 +69,28 @@ i.bi.bi-cart {
     top: 0;
     width: 100%;
 }
+.icon-badge-container{
+    align-items: center;
+}
+span#totalMessage {
+    background: rgb(255, 153, 0);
+    border-radius: 3rem;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-left: -7px;
+}
+
+i.far.fa-envelope.icon-badge-icon {
+    font-size: 1.3rem;
+}
+.icon-badge {
+    margin-right: 1rem;
+}
+.icon-badge-container a {
+    color: #212529;
+}
 
 @media only screen and (max-width: 520px) {
   .register button {

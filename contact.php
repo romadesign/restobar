@@ -8,16 +8,6 @@ include ('templates/header.php'); ?>
             <div class="col-lg-6">
                 <h4 class="title">Contactar</h4>
             </div>
-            <div class="col-lg-6">
-                <?php if($loggedin){ ?>
-                <div class="icon-badge-container d-flex">
-                    <a href="#" data-bs-toggle="modal" data-bs-target="#adminReply"><i
-                    
-                            class="far fa-envelope icon-badge-icon"></i></a>
-                    <div class="icon-badge"><b><span id="totalMessage">0</span></b></div>
-                </div>
-                <?php } ?>
-            </div>
         </div>
 
         <?php
@@ -92,54 +82,6 @@ include ('templates/header.php'); ?>
     </div>
 </div>
 
-<!-- Message Modal -->
-<div class="modal fade" id="adminReply" tabindex="-1" role="dialog" aria-labelledby="adminReply" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="adminReply">Respuesta del administrador</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body" id="messagebd">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th scope="col">Contact Id</th>
-                            <th scope="col">Mensaje</th>
-                            <th scope="col">Fecha y hora</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php 
-                    $sql = "SELECT * FROM `contactreply` WHERE `userId`='$userId'"; 
-                    $result = mysqli_query($conn, $sql);
-                    $count = 0;
-                    while($row=mysqli_fetch_assoc($result)) {
-                        $contactId = $row['contactId'];
-                        $message = $row['message'];
-                        $datetime = $row['datetime'];
-                        $count++;
-                        echo '<tr>
-                                <td>' .$contactId. '</td>
-                                <td>' .$message. '</td>
-                                <td>' .$datetime. '</td>
-                              </tr>';
-                    }
-                    echo '<script>document.getElementById("totalMessage").innerHTML = "' .$count. '";</script>';
-                    if($count==0) {
-                      ?><script>
-                        document.getElementById("messagebd").innerHTML =
-                            '<div class="my-1">you have not recieve any message.</div>';
-                        </script> <?php
-                    }
-                ?>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- history Modal -->
 <div class="modal fade" id="history" tabindex="-1" aria-labelledby="history" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
@@ -159,30 +101,30 @@ include ('templates/header.php'); ?>
                         </tr>
                     </thead>
                     <tbody>
-                        <?php 
-                    $sql = "SELECT * FROM `contact` WHERE `userId`='$userId'"; 
-                    $result = mysqli_query($conn, $sql);
-                    $count = 0;
-                    while($row=mysqli_fetch_assoc($result)) {
-                        $contactId = $row['contactId'];
-                        $orderId = $row['orderId'];
-                        $message = $row['message'];
-                        $datetime = $row['time'];
-                        $count++;
-                        echo '<tr>
-                                <td>' .$contactId. '</td>
-                                <td>' .$orderId. '</td>
-                                <td>' .$message. '</td>
-                                <td>' .$datetime. '</td>
-                              </tr>';
-                    }                
-                    if($count==0) {
-                      ?><script>
-                        document.getElementById("bd").innerHTML =
-                            '<div class="my-1">you have not contacted us.</div>';
-                        </script> <?php
-                    }    
-                ?>
+                      <?php 
+                        $sql = "SELECT * FROM `contact` WHERE `userId`='$userId'"; 
+                        $result = mysqli_query($conn, $sql);
+                        $count = 0;
+                        while($row=mysqli_fetch_assoc($result)) {
+                            $contactId = $row['contactId'];
+                            $orderId = $row['orderId'];
+                            $message = $row['message'];
+                            $datetime = $row['time'];
+                            $count++;
+                            echo '<tr>
+                                    <td>' .$contactId. '</td>
+                                    <td>' .$orderId. '</td>
+                                    <td>' .$message. '</td>
+                                    <td>' .$datetime. '</td>
+                                  </tr>';
+                        }                
+                        if($count==0) {
+                          ?><script>
+                            document.getElementById("bd").innerHTML =
+                                '<div class="my-1">you have not contacted us.</div>';
+                            </script> <?php
+                        }    
+                      ?>
                     </tbody>
                 </table>
             </div>

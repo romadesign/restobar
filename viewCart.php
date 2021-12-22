@@ -54,7 +54,7 @@ if($loggedin){
                         <tr>
                             <td class="viewCartNro"><?php echo $counter  ?></td>
                             <td><?php echo $menuName ?></td>
-                            <td><?php echo $menuPrice ?></td>
+                            <td><?php echo $menuPrice ?> €</td>
                             <td>
                                 <form id="frm<?php echo $menuId ?>">
                                     <input type="hidden" name="menuId" value="<?php echo $menuId  ?>">
@@ -64,7 +64,7 @@ if($loggedin){
                                         onClick="this.select();">
                                 </form>
                             </td>
-                            <td><?php echo $total ?></td>
+                            <td><?php echo $total ?> €</td>
                             <td>
                                 <form action="fetch/_manageCart.php" method="POST">
                                     <button name="removeItem" class="btn btn-sm btn-outline-danger">Retirar</button>
