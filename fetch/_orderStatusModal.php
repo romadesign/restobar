@@ -91,13 +91,17 @@
 }
 
 .track .step.active .text {
-    font-weight: 400;
-    color: #000
+    font-weight: bold;
+    color: #000;
+    font-size: 0.8rem;
 }
 
 .track .text {
-    display: block;
-    margin-top: 7px
+  display: block;
+    margin-top: 7px;
+    font-weight: bold;
+    color: #000;
+    font-size: 0.8rem;
 }
 
 .btn-warning {
@@ -112,6 +116,15 @@
     background-color: #ff2b00;
     border-color: #ff2b00;
     border-radius: 1px
+}
+@media only screen and (max-width: 780px){
+  .track .step.active .text {
+    font-size: 0.5rem;
+}
+
+.track .text {
+    font-size: 0.5rem;
+}
 }
 </style>
 <?php 
@@ -172,12 +185,24 @@
                             <h6><strong>Order ID:</strong> #<?php echo $orderid; ?></h6>
                             <article class="card">
                                 <div class="card-body row">
-                                    <div class="col"> <strong>Tiempo de entrega estimado:</strong>
-                                        <br><?php echo $deliveryTime; ?> minutos </div>
-                                    <div class="col"> <strong>Repartidor:</strong> <br> <?php echo $deliveryBoyName; ?>
-                                        <br> <i class="fa fa-phone"></i> <?php echo $deliveryBoyPhoneNo; ?> </div>
-                                    <div class="col"> <strong>Estado:</strong> <br> <?php echo $tstatus; ?> </div>
-                                    <div class="col"> <strong>Seguimiento #:</strong> <br> <?php echo $trackId; ?>
+                                    <div class="col"> <strong class="text_contentOrderModalStatus">Tiempo de entrega estimado:</strong>
+                                        <div><span class="text_modalStatus"><?php echo $deliveryTime; ?> minutos</span></div>
+                                    </div>
+                                    <div class="col"> 
+                                      <strong class="text_contentOrderModalStatus">Repartidor:</strong> 
+                                      <span class="text_modalStatus"><?php echo $deliveryBoyName; ?></span> 
+                                      <div class="content_modal_iconstelf_text">
+                                      <i class="fa fa-phone"> Celular </i> <br>
+                                      <span><?php echo $deliveryBoyPhoneNo; ?></span>
+                                      </div>
+                                    </div>
+                                    <div class="col"> 
+                                      <strong class="text_contentOrderModalStatus">Estado:</strong>
+                                      <span class="text_modalStatus"><?php echo $tstatus; ?></span> 
+                                    </div>
+                                    <div class="col"> 
+                                      <strong class="text_contentOrderModalStatus">Seguimiento#:</strong>
+                                      <span class="text_modalStatus"><?php echo $trackId; ?></span>
                                     </div>
                                 </div>
                             </article>
@@ -312,7 +337,7 @@
                                <?php }
                             ?>
                             </div>
-                            <a href="contact.php" class="btn btn-warning" data-abc="true">Contactar <i class="fa fa-chevron-right"></i></a>
+                            <a href="contact.php" class="btn btn-warning mt-3" data-abc="true">Contactar <i class="fa fa-chevron-right"></i></a>
                         </div>
                     </article>
                 </div>

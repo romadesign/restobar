@@ -6,6 +6,8 @@ if($loggedin){
 ?>
 
 <div class="container" id="cont">
+<br><br><br>
+
     <div class="row">
         <div class="alert alert-info mb-0" style="width: -webkit-fill-available;">
             <strong>Info!</strong> El pago en línea está actualmente deshabilitado, así que elija contra reembolso.
@@ -160,10 +162,18 @@ if($loggedin){
 <?php
     }
     else {
-        echo '<div class="container" style="min-height : 610px;">
-        <div class="alert alert-info my-3">
-            <font style="font-size:22px"><center>Necesitas iniciar sessión para ingresar a tu carrito de compra <strong><a type="button" class="" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></strong></center></font>
-        </div></div>';
+        echo '
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                        <div class="container" style="min-height : 610px;">
+                        <br><br><br>
+                        <div class="alert alert-info my-3">
+                            <font style="font-size:22px"><center>Necesitas iniciar sessión para ingresar a tu carrito de compra <strong><a type="button" class="" data-bs-toggle="modal" data-bs-target="#loginModal">Login</a></strong></center></font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            ';
     }
     ?>
 <?php require 'fetch/_checkoutModal.php'; ?>

@@ -28,10 +28,10 @@ if($loggedin)
             <thead>
                 <tr>
                     <th>Order Id</th>
-                    <th>Dirección</th>
-                    <th>Celular</th>
+                    <th  class="content_order">Dirección</th>
+                    <th  class="content_order">Celular</th>
                     <th>Monto</th>
-                    <th>Modo de pago</th>
+                    <th  class="content_order">Modo de pago</th>
                     <th>Fecha de pedido</th>
                     <th>Estado</th>
                     <th>Items</th>
@@ -62,10 +62,10 @@ if($loggedin)
 
                 <tr>
                     <td><?php echo $orderId ?></td>
-                    <td><?php echo substr($address, 0, 20) ?>...</td>
-                    <td><?php echo $phoneNo ?></td>
+                    <td class="content_order"><?php echo substr($address, 0, 20) ?>...</td>
+                    <td  class="content_order"><?php echo $phoneNo ?></td>
                     <td><?php echo $amount  ?> €</td>
-                    <td><?php echo $paymentMode ?></td>
+                    <td  class="content_order"><?php echo $paymentMode ?></td>
                     <td><?php echo $orderDate ?></td>
                     <td>
                         <a href="#" data-toggle="modal" data-bs-toggle="modal"

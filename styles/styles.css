@@ -7,6 +7,24 @@ body{
     background-color: #f8f9fa !important;
 }
 
+
+/* General */
+th {
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+td {
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+span.text_modalStatus {
+    display: block;
+}
+i.fa.fa-phone {
+    font-size: 0.6rem;
+    display: inline-flex;
+}
+
 /* Card Styles menu */
 .card{
     border: 0 !important;
@@ -120,4 +138,32 @@ i.far.fa-envelope.icon-badge-icon {
   /* Contact */
   .content_contact {
     background: rebeccapurple !important;
+}
+
+
+/* Contact order */
+@media only screen and (max-width: 720px){
+    td.content_order{ 
+        display: none;
+    }
+    th.content_order{ 
+        display: none;
+    }
+}
+
+/* OrderStatusModal */
+@media only screen and (max-width: 720px){
+    strong.text_contentOrderModalStatus {
+        font-size: 0.7rem;
+        font-weight: bold;
+        display: inline-table;
+    }
+    
+    span.text_modalStatus {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: #292929;
+        display: inline-table;
+
+    }
 }
