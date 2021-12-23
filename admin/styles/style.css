@@ -64,3 +64,10 @@ img.image_menu{
     background-color: #f6f6f6 !important;
     border: 0px !important;
 }
+
+/* contactManage */
+@media only screen and (max-width: 800px){
+    th.content_tableUserId td.content_tableUserId {
+        display: none;
+    }
+}
