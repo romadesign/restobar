@@ -1,9 +1,7 @@
-<?php include_once('db/dbconnect.php') ?>
-
 <?php
 function login(){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include 'db/dbconnect.php';
+    include '../db/dbconnect.php';
     
     $username = $_POST["username"];
     $password = $_POST["password"]; 

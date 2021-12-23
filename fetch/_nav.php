@@ -42,6 +42,7 @@ include 'fetch/_fetch_general.php';
         <div class="content_left">
             <!-- Cart contador -->
             <?php
+                
                 $countsql = "SELECT SUM(`itemQuantity`) FROM `viewcart` WHERE `userId`=$userId"; 
                 $countresult = mysqli_query($conn, $countsql);
                 $countrow = mysqli_fetch_assoc($countresult);      
@@ -58,6 +59,7 @@ include 'fetch/_fetch_general.php';
             <?php 
               if($loggedin){
                 //Message
+                
                 $sql = "SELECT * FROM `contactreply` WHERE `userId`='$userId'"; 
                 $result = mysqli_query($conn, $sql);
                 $count = 0;
@@ -85,8 +87,9 @@ include 'fetch/_fetch_general.php';
                         <a class="nav-link" href="viewOrder.php"><i class="fas fa-tasks"></i>&nbsp; Pedidos</a>
                     </li>
                     <li>
-                        <a class="dropdown-item ml-3" href="fetch/_logout.php"><i class="fas fa-power-off"></i>&nbsp;
-                            Salír</a>
+                        <form action="fetch/_logout.php" method="POST">
+                        <i class="fas fa-power-off"></i>&nbsp;<input type="submit" value="Salir">
+                        </form>
                     </li>
                 </ul>
             </div>
@@ -122,6 +125,8 @@ include 'fetch/_fetch_general.php';
                     </thead>
                     <tbody>
                     <?php 
+                
+
                       $sql = "SELECT * FROM `contactreply` WHERE `userId`='$userId'"; 
                       $result = mysqli_query($conn, $sql);
                       $count = 0;

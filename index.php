@@ -1,6 +1,5 @@
-<?php include('fetch/_dbconnect.php');?>
+<?php include './db/dbconnect.php';?>
 <?php require('fetch/_nav.php');?>
-
 <?php include_once('templates/header.php') ?>
 
 <!-- Category container starts here -->

@@ -2,7 +2,7 @@
 $showAlert = false;
 $showError = false;
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include '_dbconnect.php';
+    include ('../db/dbconnect.php');
     $username = $_POST["username"];
     $firstName = $_POST["firstName"];
     $lastName = $_POST["lastName"];

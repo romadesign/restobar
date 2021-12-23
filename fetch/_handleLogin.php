@@ -1,6 +1,7 @@
 <?php
+
 if($_SERVER["REQUEST_METHOD"] == "POST"){
-    include '_dbconnect.php';
+    include '../db/dbconnect.php';
     $username = $_POST["loginusername"];
     $password = $_POST["loginpassword"]; 
     

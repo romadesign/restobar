@@ -1,5 +1,5 @@
 <?php include_once('templates/header.php') ?>
-<?php require 'fetch/_dbconnect.php';?>
+<?php require  ('./db/dbconnect.php');?>
 <?php require 'fetch/_nav.php' ?>
 <?php 
 if($loggedin)
