@@ -10,8 +10,7 @@
     <code> <img align="center" alt="Rafa-Js" height="30" width="40" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg"></code>
   </div>
   
-  **Funciones que solo tendrá un usuario logeado: 
-  <a  href="https://restobarvilla.000webhostapp.com/" target="_blank"><img src="https://img.shields.io/badge/view-001847?style=for-the-badge&logo=view&logoColor=white" target="_blank"></a>**
+  **Funciones que solo tendrá un usuario logeado:**
   <!--START_SECTION:waka-->
   ```text
   - Login de usuario
@@ -23,8 +22,6 @@
   - Imprimir todos los pedidos realizados   
   ```
   <!--END_SECTION:waka-->
-  
-  
 </div>
 <br>
 <div>
