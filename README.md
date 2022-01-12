@@ -1,2 +1,2 @@
-<h1> restobar </h1>
-WebSite Restobar 
+<h1> Restobar :smiley:</h1>
+Aplicación de pedidos
